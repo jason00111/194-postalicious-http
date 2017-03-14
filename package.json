@@ -1,0 +1,23 @@
+{
+  "name": "194-postalicious-http",
+  "version": "1.0.0",
+  "description": "## Specifications ...",
+  "main": "index.js",
+  "scripts": {
+    "sandbox-server": "echo nothing here yet",
+    "sb": "echo nothing here yet",
+    "postalicious": "echo nothing here yet",
+    "pl": "echo nothing here yet",
+    "lint": "echo nothing here yet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jason00111/194-postalicious-http.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jason00111/194-postalicious-http/issues"
+  },
+  "homepage": "https://github.com/jason00111/194-postalicious-http#readme"
+}
