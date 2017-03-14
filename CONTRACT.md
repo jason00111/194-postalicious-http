@@ -78,8 +78,8 @@ If that all sounds like ancient Greek to you, never fear. If you take it one ste
 
 **General**
 
-- [ ] The artifact produced is a repo with at least two sub-folders: `postalicious/` and `sandbox-server/`.
-- [ ] The artifact produced is properly licensed, preferably with the [MIT license](https://opensource.org/licenses/MIT).
+- [X] The artifact produced is a repo with at least two sub-folders: `postalicious/` and `sandbox-server/`.
+- [X] The artifact produced is properly licensed, preferably with the [MIT license](https://opensource.org/licenses/MIT).
 
 **Sandbox Server**
 
