@@ -51,15 +51,15 @@ app.get('/old-page', (req, res) => {
   res.status(301).end()
 })
 
-app.post('/admin-only' (req, res) => {
+app.post('/admin-only', (req, res) => {
   res.status(403).end()
 })
 
-app.post('/not-a-page' (req, res) => {
+app.post('/not-a-page', (req, res) => {
   res.status(404).end()
 })
 
-app.post('/server-error' (req, res) => {
+app.post('/server-error', (req, res) => {
   res.status(500).end()
 })
 

@@ -6,8 +6,8 @@
   "scripts": {
     "sandbox-server": "node sandbox-server/server.js",
     "sb": "node sandbox-server/server.js",
-    "postalicious": "echo nothing here yet",
-    "pl": "echo nothing here yet",
+    "postalicious": "node postalicious/server.js",
+    "pl": "node postalicious/server.js",
     "lint": "./node_modules/.bin/eslint sandbox-server/*.js postalicious/*.js"
   },
   "repository": {
