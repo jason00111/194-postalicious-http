@@ -4,11 +4,11 @@
   "description": "## Specifications ...",
   "main": "index.js",
   "scripts": {
-    "sandbox-server": "echo nothing here yet",
-    "sb": "echo nothing here yet",
+    "sandbox-server": "node sandbox-server/server.js",
+    "sb": "node sandbox-server/server.js",
     "postalicious": "echo nothing here yet",
     "pl": "echo nothing here yet",
-    "lint": "echo nothing here yet"
+    "lint": "./node_modules/.bin/eslint sandbox-server/*.js postalicious/*.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/jason00111/194-postalicious-http/issues"
   },
-  "homepage": "https://github.com/jason00111/194-postalicious-http#readme"
+  "homepage": "https://github.com/jason00111/194-postalicious-http#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "eslint": "^3.17.1",
+    "express": "^4.15.2"
+  }
 }
