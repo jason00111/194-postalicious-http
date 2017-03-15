@@ -3,21 +3,64 @@
   <head>
     <meta charset="utf-8">
     <title>Postalicious</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <div class="requestBuilder" name="testName">
-      <form class="" action="index.html" method="post" name="testName2">
-
-      </form>
-    </div>
-    <div>
-      <div>
-        <div class="title requestTitle">REQUEST</div>
-        <div class="rawRequest"></div>
+    <div class="container">
+      <div class="postaliciousHeader">
+        Postalicious
       </div>
-      <div>
-        <div class="title responseTitle">RESPONSE</div>
-        <div class="rawResponse"></div>
+      <div class="methodHost">
+        <label>Method</label>
+        <input list="method">
+        <datalist id="method">
+          <option value="GET">
+          <option value="POST">
+        </datalist>
+        <label>Host</label>
+        <input type="text"></input>
+      </div>
+      <div class="query">
+        <label>Query Parameters</label>
+        <input type="text" placeholder="key"></input>
+        <input type="text" placeholder="value"></input>
+        <input type="text" placeholder="key"></input>
+        <input type="text" placeholder="value"></input>
+        <input type="text" placeholder="key"></input>
+        <input type="text" placeholder="value"></input>
+      </div>
+      <div class="headers">
+        <label>Headers</label>
+        <input type="text" placeholder="key"></input>
+        <input type="text" placeholder="value"></input>
+        <input type="text" placeholder="key"></input>
+        <input type="text" placeholder="value"></input>
+        <input type="text" placeholder="key"></input>
+        <input type="text" placeholder="value"></input>
+      </div>
+      <div class="body">
+        <label>Body</label>
+        <textarea></textarea>
+      </div>
+      <div class="buttons">
+        <button class="buildButton">
+          Build Request
+        </button>
+        <button class="sendButton">
+          Build & Send
+        </button>
+      </div>
+      <div class="rawRequestHeader">
+        REQUEST
+      </div>
+      <div class="rawRequest">
+        raw request here
+      </div>
+      <div class="rawResponseHeader">
+        RESPONSE
+      </div>
+      <div class="rawResponse">
+        raw response here
       </div>
     </div>
   </body>

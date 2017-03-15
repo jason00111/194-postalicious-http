@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+}
+
+div {
+  padding: 10px;
+}
+
+.container {
+  display: grid;
+  color: #444;
+  font-family: sans-serif;
+  padding: 0;
+}
+
+.postaliciousHeader {
+  grid-column: 1 / 5;
+  grid-row: 1 / 2;
+  background-color: #9C9C9C;
+}
+
+.methodHeader {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.query {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.headers {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.body {
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
+}
+
+.buttons {
+  grid-column: 1 / 5;
+  grid-row: 3 / 4;
+}
+
+.rawRequestHeader {
+  grid-column: 1 / 3;
+  grid-row: 4 / 5;
+  background-color: #7ED31B;
+}
+
+.rawResponseHeader {
+  grid-column: 3 / 5;
+  grid-row: 4 / 5;
+  background-color: #488FE0;
+}
+
+.rawRequest {
+  grid-column: 1 / 3;
+  grid-row: 5 / 6;
+    background-color: #F3FAE9;
+}
+
+.rawResponse {
+  grid-column: 3 / 5;
+  grid-row: 5 / 6;
+  background-color: #EDF3FC;
+}
+
+input, textarea {
+  background-color: #ECECEC;
+  border: 1px solid #9C9C9C;
+  margin: 2px;
+}
+
+button {
+  border: 1px solid #9C9C9C;
+  padding: 8px 15px;
+}
+
+.buildButton {
+  background-color: #7ED31B;
+  outline: 0;
+}
+
+.sendButton {
+  background-color: #488FE0;
+  outline: 0;
+}
+
+.buildButton:active {
+  background-color: #F3FAE9;
+}
+
+.sendButton:active {
+  background-color: #EDF3FC;
+}
