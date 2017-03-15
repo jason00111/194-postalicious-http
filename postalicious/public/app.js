@@ -52,7 +52,7 @@ function build () {
     }
   }
 
-  request += ' HTTP/1.1\r\nHost: ${hostInput.value}\r\n'
+  request += ` HTTP/1.1\r\nHost: ${hostInput.value}\r\n`
 
   const headerKeysArray = Array.from(headerKeys).map(input => input.value)
   const headerValuesArray = Array.from(headerValues).map(input => input.value)
@@ -64,11 +64,36 @@ function build () {
     return headers
   }, [])
 
+  if (bodyInput.value.length !== 0) {
+    headers.push(`Content-Length: ${bodyInput.value.length}`)
+  }
+
   if (headers.length !== 0) {
     request += `${headers.join('\r\n')}`
   }
 
   request += '\r\n\r\n'
 
+  if (bodyInput.value.length !== 0) {
+    request += bodyInput.value
+  }
+
   rawRequestDiv.textContent = request
+
+  return request
+}
+
+function buildAndSend () {
+  const requestString = build()
+
+  const xhrRequest = new XMLHttpRequest()
+  xhrRequest.open("POST", 'http://localhost:3001/sendRequest')
+
+  xhrRequest.onload = function () {
+    if (xhrRequest.readyState === xhrRequest.DONE) {
+      rawResponseDiv.textContent = xhrRequest.response
+    }
+  }
+
+  xhrRequest.send(requestString)
 }
