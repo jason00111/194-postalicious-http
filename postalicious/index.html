@@ -11,39 +11,53 @@
         Postalicious
       </div>
       <div class="methodHost">
-        <label>Method</label>
-        <input list="method">
-        <datalist id="method">
+        <div>Method</div>
+        <input list="methodOptions" id="method">
+        <datalist id="methodOptions">
           <option value="GET">
           <option value="POST">
         </datalist>
-        <label>Host</label>
-        <input type="text"></input>
+        <div>Host</div>
+        <input type="text" id="host"></input>
+        <div>URI</div>
+        <input type="text" id="uri"></input>
       </div>
       <div class="query">
-        <label>Query Parameters</label>
-        <input type="text" placeholder="key"></input>
-        <input type="text" placeholder="value"></input>
-        <input type="text" placeholder="key"></input>
-        <input type="text" placeholder="value"></input>
-        <input type="text" placeholder="key"></input>
-        <input type="text" placeholder="value"></input>
+        <div>Query Parameters</div>
+        <div>
+          <input type="text" placeholder="key" class="queryKey"></input>
+          <input type="text" placeholder="value" class="queryValue"></input>
+        </div>
+        <div>
+          <input type="text" placeholder="key" class="queryKey"></input>
+          <input type="text" placeholder="value" class="queryValue"></input>
+        </div>
+        <div>
+          <input type="text" placeholder="key" class="queryKey"></input>
+          <input type="text" placeholder="value" class="queryValue"></input>
+        </div>
       </div>
       <div class="headers">
-        <label>Headers</label>
-        <input type="text" placeholder="key"></input>
-        <input type="text" placeholder="value"></input>
-        <input type="text" placeholder="key"></input>
-        <input type="text" placeholder="value"></input>
-        <input type="text" placeholder="key"></input>
-        <input type="text" placeholder="value"></input>
+        <div>Headers</div>
+        <div>
+          <input type="text" placeholder="key" class="headerKey"></input>
+          <input type="text" placeholder="value" class="headerValue"></input>
+        </div>
+        <div>
+          <input type="text" placeholder="key" class="headerKey"></input>
+          <input type="text" placeholder="value" class="headerValue"></input>
+        </div>
+        <div>
+          <input type="text" placeholder="key" class="headerKey"></input>
+          <input type="text" placeholder="value" class="headerValue"></input>
+        </div>
       </div>
       <div class="body">
-        <label>Body</label>
-        <textarea></textarea>
+        <div>Body</div>
+        <textarea id="body"></textarea>
       </div>
       <div class="buttons">
-        <button class="buildButton">
+        <button class="buildButton" onClick="build()">
           Build Request
         </button>
         <button class="sendButton">
@@ -53,15 +67,12 @@
       <div class="rawRequestHeader">
         REQUEST
       </div>
-      <div class="rawRequest">
-        raw request here
-      </div>
+      <pre id="rawRequest"></pre>
       <div class="rawResponseHeader">
         RESPONSE
       </div>
-      <div class="rawResponse">
-        raw response here
-      </div>
+      <pre id="rawResponse"></pre>
     </div>
+    <script src="app.js" charset="utf-8"></script>
   </body>
 </html>
