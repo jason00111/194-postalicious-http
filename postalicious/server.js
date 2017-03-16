@@ -14,20 +14,16 @@ app.get('/', (req, res) => {
 })
 
 app.post('/sendRequest', (req, res) => {
-  console.log('sendRequest recieved...', req.body, '...')
-  console.log('type:', typeof req.body)
-
   socket = net.connect(3000, 'localhost', function () {
     socket.end(req.body)
 
-    // collect raw http message:
     let rawResponse = ''
 
     socket.on('data', function(chunk) {
       rawResponse += chunk
     })
+    
     socket.on('end', function(){
-      console.log(rawResponse)
       res.type('text')
       res.send(rawResponse)
     })

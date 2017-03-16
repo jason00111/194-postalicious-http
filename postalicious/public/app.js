@@ -68,6 +68,7 @@ function build () {
 
   if (bodyInput.value.length !== 0) {
     headers.push(`Content-Length: ${bodyInput.value.length}`)
+    headers.push('Content-Type: text/plain')
   }
 
   if (headers.length !== 0) {
