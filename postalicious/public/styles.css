@@ -63,6 +63,7 @@ div {
   background-color: #F3FAE9;
   height: 200px;
   padding: 10px;
+  margin: 0;
 }
 
 #rawResponse {
@@ -71,6 +72,7 @@ div {
   background-color: #EDF3FC;
   height: 200px;
   padding: 10px;
+  margin: 0;
 }
 
 input, textarea {
