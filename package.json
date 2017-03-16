@@ -1,7 +1,7 @@
 {
   "name": "194-postalicious-http",
   "version": "1.0.0",
-  "description": "## Specifications ...",
+  "description": "Graphical HTTP request builder/viewer and sandbox server",
   "main": "index.js",
   "scripts": {
     "sandbox-server": "node sandbox-server/server.js",
