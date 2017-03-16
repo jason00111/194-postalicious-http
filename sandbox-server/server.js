@@ -21,7 +21,6 @@ app.get('/search', (req, res) => {
 
 app.post('/things', (req, res) => {
   res.set('Content-Type', 'text/plain')
-  console.log('req.body:', req.body)
   res.status(201).send(`New thing created: "${req.body}"!`)
 })
 
@@ -40,7 +39,7 @@ app.get('/somefile', (req, res) => {
 app.get('/myjsondata', (req, res) => {
   if (req.accepts('application/json')) {
     res.set('Content-Type', 'application/json')
-    res.status(200).send({ "title": "some JSON data" })
+    res.status(200).send({ 'title': 'some JSON data' })
   } else {
     res.status(400).end()
   }

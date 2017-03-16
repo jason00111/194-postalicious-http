@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/sendRequest', (req, res) => {
-  socket = net.connect(3000, 'localhost', function () {
+  const socket = net.connect(3000, 'localhost', function () {
     socket.end(req.body)
 
     let rawResponse = ''
@@ -22,7 +22,7 @@ app.post('/sendRequest', (req, res) => {
     socket.on('data', function(chunk) {
       rawResponse += chunk
     })
-    
+
     socket.on('end', function(){
       res.type('text')
       res.send(rawResponse)
