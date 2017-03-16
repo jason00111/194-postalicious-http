@@ -1,65 +1,98 @@
-const express = require('express')
-const bodyParser = require('body-parser')
+const http = require('http')
+const url = require('url')
+const querystring = require('querystring')
 
-const app = express()
+const server = http.createServer((req, res) => {
+  console.log('request received', req.url)
 
-app.use(bodyParser.text({ type: 'text/plain' }))
+  const parsedUrl = url.parse(req.url)
+  const parsedQuery = querystring.parse(parsedUrl.query)
 
-app.get('/', (req, res) => {
-  res.set('Content-Type', 'text/plain')
-  res.status(200).send('Welcome to Sandbox!')
-})
+  switch (parsedUrl.pathname) {
+    case '/':
+      if (req.method === 'GET') {
+        res.statusCode = 200
+        res.setHeader('Content-Type', 'text/plain')
+        res.end('Welcome to Sandbox!')
+      }
+      break;
+    case '/search':
+      if (req.method === 'GET') {
+        if ('q' in parsedQuery) {
+          res.statusCode = 200
+          res.setHeader('Content-Type', 'text/plain')
+          res.end(`You searched for: "${parsedQuery.q}"`)
+        } else {
+          res.statusCode = 400
+          res.setHeader('Content-Type', 'text/plain')
+          res.end('You didn\'t provide a search query term :(')
+        }
+      }
+      break;
+    case '/things':
+      if (req.method === 'POST') {
+        let body = [];
+        req.on('data', function(chunk) {
+          body.push(chunk);
+        }).on('end', function() {
+          body = Buffer.concat(body).toString();
 
-app.get('/search', (req, res) => {
-  res.set('Content-Type', 'text/plain')
-  if ('q' in req.query) {
-    res.status(200).send(`You searched for: "${req.query.q}"`)
-  } else {
-    res.status(400).send('You didn\'t provide a search query term :(')
+          res.statusCode = 201
+          res.setHeader('Content-Type', 'text/plain')
+          res.end(`New thing created: "${body}"!`)
+        });
+      }
+      break;
+    case '/somefile':
+      if (req.method === 'GET') {
+        if ('accept' in req.headers) {
+          res.statusCode = 200
+          if (req.headers.accept === 'text/plain') {
+            res.setHeader('Content-Type', 'text/plain')
+            res.end('This is a plain text file')
+          } else if (req.headers.accept === 'text/html') {
+            res.setHeader('Content-Type', 'text/html')
+            res.end('<!DOCTYPE html><html><body>This is an HTML file</body></html>')
+          }
+        }
+      }
+      break;
+    case '/myjsondata':
+      if (req.method === 'GET') {
+        if ('accept' in req.headers && req.headers.accept === 'application/json') {
+          res.statusCode = 200
+          res.setHeader('Content-Type', 'application/json')
+          res.end('{ "title": "some JSON data" }')
+        }
+      }
+      break;
+    case '/old-page':
+      if (req.method === 'GET') {
+        res.statusCode = 301
+        res.setHeader('Location', 'http://localhost:3000/newpage')
+        res.end()
+      }
+      break;
+    case '/admin-only':
+      if (req.method === 'POST') {
+        res.statusCode = 403
+        res.end()
+      }
+      break;
+    case '/not-a-page':
+      if (req.method === 'GET') {
+        res.statusCode = 404
+        res.end()
+      }
+      break;
+    case '/server-error':
+      if (req.method === 'GET') {
+        res.statusCode = 500
+        res.end()
+      }
+      break;
+    default:
   }
 })
 
-app.post('/things', (req, res) => {
-  res.set('Content-Type', 'text/plain')
-  res.status(201).send(`New thing created: "${req.body}"!`)
-})
-
-app.get('/somefile', (req, res) => {
-  if (req.accepts('text/plain')) {
-    res.set('Content-Type', 'text/plain')
-    res.status(200).send('This is a plain text file')
-  } else if (req.accepts('text/html')) {
-    res.set('Content-Type', 'text/html')
-    res.status(200).send('<!DOCTYPE html><html><body>This is an HTML file</body></html>')
-  } else {
-    res.status(400).end()
-  }
-})
-
-app.get('/myjsondata', (req, res) => {
-  if (req.accepts('application/json')) {
-    res.set('Content-Type', 'application/json')
-    res.status(200).send({ 'title': 'some JSON data' })
-  } else {
-    res.status(400).end()
-  }
-})
-
-app.get('/old-page', (req, res) => {
-  res.location('http://localhost:3000/newpage')
-  res.status(301).end()
-})
-
-app.post('/admin-only', (req, res) => {
-  res.status(403).end()
-})
-
-app.get('/not-a-page', (req, res) => {
-  res.status(404).end()
-})
-
-app.get('/server-error', (req, res) => {
-  res.status(500).end()
-})
-
-app.listen(3000, () => console.log('sandbox-server listening on port 3000'))
+server.listen(3000, 'localhost', () => console.log('sandbox-server listening on port 3000'))
