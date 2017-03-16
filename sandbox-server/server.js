@@ -3,8 +3,6 @@ const url = require('url')
 const querystring = require('querystring')
 
 const server = http.createServer((req, res) => {
-  console.log('request received', req.url)
-
   const parsedUrl = url.parse(req.url)
   const parsedQuery = querystring.parse(parsedUrl.query)
 
@@ -15,7 +13,7 @@ const server = http.createServer((req, res) => {
         res.setHeader('Content-Type', 'text/plain')
         res.end('Welcome to Sandbox!')
       }
-      break;
+      break
     case '/search':
       if (req.method === 'GET') {
         if ('q' in parsedQuery) {
@@ -28,21 +26,21 @@ const server = http.createServer((req, res) => {
           res.end('You didn\'t provide a search query term :(')
         }
       }
-      break;
+      break
     case '/things':
       if (req.method === 'POST') {
-        let body = [];
+        let body = []
         req.on('data', function(chunk) {
-          body.push(chunk);
+          body.push(chunk)
         }).on('end', function() {
-          body = Buffer.concat(body).toString();
+          body = Buffer.concat(body).toString()
 
           res.statusCode = 201
           res.setHeader('Content-Type', 'text/plain')
           res.end(`New thing created: "${body}"!`)
-        });
+        })
       }
-      break;
+      break
     case '/somefile':
       if (req.method === 'GET') {
         if ('accept' in req.headers) {
@@ -56,7 +54,7 @@ const server = http.createServer((req, res) => {
           }
         }
       }
-      break;
+      break
     case '/myjsondata':
       if (req.method === 'GET') {
         if ('accept' in req.headers && req.headers.accept === 'application/json') {
@@ -65,32 +63,32 @@ const server = http.createServer((req, res) => {
           res.end('{ "title": "some JSON data" }')
         }
       }
-      break;
+      break
     case '/old-page':
       if (req.method === 'GET') {
         res.statusCode = 301
         res.setHeader('Location', 'http://localhost:3000/newpage')
         res.end()
       }
-      break;
+      break
     case '/admin-only':
       if (req.method === 'POST') {
         res.statusCode = 403
         res.end()
       }
-      break;
+      break
     case '/not-a-page':
       if (req.method === 'GET') {
         res.statusCode = 404
         res.end()
       }
-      break;
+      break
     case '/server-error':
       if (req.method === 'GET') {
         res.statusCode = 500
         res.end()
       }
-      break;
+      break
     default:
   }
 })
