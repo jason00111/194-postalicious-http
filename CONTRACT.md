@@ -122,23 +122,23 @@ If that all sounds like ancient Greek to you, never fear. If you take it one ste
 
 **Postalicious**
 
-- [ ] Can run the command `npm run postalicious` (or `npm run pl`, if you want to save some typing) to start the Postalicious app at port 3001.
-- [ ] Users can visit the main page of the Postalicious site at `http://localhost:3001`.
-- [ ] Main page has three main sections:
-  - [ ] Request builder HTML form
-  - [ ] Raw HTTP request
-  - [ ] Raw HTTP response
-- [ ] When a user fills out the HTML form and clicks a "Send" button...
-  - [ ] The raw HTTP request is generated and shown
-  - [ ] The HTTP request is sent, and the raw response message is shown
-- [ ] Users can fill out an HTML form to specify HTTP request details.
-- [ ] Submitting the form will send the request according to the specified details.
-- [ ] Using the HTML form, users can specify...
-  - [ ] host and path
-  - [ ] HTTP verb/method
-  - [ ] query parameter keys + values
-  - [ ] header keys + values
-  - [ ] request body
+- [X] Can run the command `npm run postalicious` (or `npm run pl`, if you want to save some typing) to start the Postalicious app at port 3001.
+- [X] Users can visit the main page of the Postalicious site at `http://localhost:3001`.
+- [X] Main page has three main sections:
+  - [X] Request builder HTML form
+  - [X] Raw HTTP request
+  - [X] Raw HTTP response
+- [X] When a user fills out the HTML form and clicks a "Send" button...
+  - [X] The raw HTTP request is generated and shown
+  - [X] The HTTP request is sent, and the raw response message is shown
+- [X] Users can fill out an HTML form to specify HTTP request details.
+- [X] Submitting the form will send the request according to the specified details.
+- [X] Using the HTML form, users can specify...
+  - [X] host and path
+  - [X] HTTP verb/method
+  - [X] query parameter keys + values
+  - [X] header keys + values
+  - [X] request body
 
 ### Stretch
 

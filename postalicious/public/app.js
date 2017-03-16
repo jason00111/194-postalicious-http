@@ -34,6 +34,8 @@ function build () {
     return
   }
 
+  rawResponseDiv.textContent = ''
+
   let request = `${methodInput.value} ${uriInput.value}`
 
   if (methodInput.value === 'GET') {

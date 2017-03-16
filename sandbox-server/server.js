@@ -22,6 +22,7 @@ app.get('/search', (req, res) => {
 
 app.post('/things', (req, res) => {
   res.set('Content-Type', 'text/plain')
+  console.log('req.body:', req.body)
   res.status(201).send(`New thing created: "${req.body}"!`)
 })
 
