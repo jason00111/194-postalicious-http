@@ -13,10 +13,38 @@ const bodyInput = document.getElementById('body')
 const rawRequestDiv = document.getElementById('rawRequest')
 const rawResponseDiv = document.getElementById('rawResponse')
 
+const historySelect = document.getElementById('history')
+
 const methods = [
   'GET',
   'POST'
 ]
+
+populateHistorySelect()
+
+function populateHistorySelect () {
+  while (historySelect.hasChildNodes()) {
+    historySelect.removeChild(historySelect.lastChild)
+  }
+
+  const labelOption = document.createElement('option')
+  labelOption.value = -1
+  labelOption.innerText = 'History'
+  historySelect.appendChild(labelOption)
+
+  const history = JSON.parse(localStorage.requests)
+
+  history.forEach((request, index) => {
+    const option = document.createElement('option')
+    option.value = index
+    option.innerText = `${request.method} ${request.host}${request.uri}`
+    historySelect.appendChild(option)
+  })
+}
+
+function remember () {
+  console.log('remember', historySelect.value)
+}
 
 function build () {
   if (!methods.find(method => method === methodInput.value)) {
@@ -105,6 +133,8 @@ function build () {
   previousRequests.push(requestObject)
 
   localStorage.setItem('requests', JSON.stringify(previousRequests))
+
+  populateHistorySelect()
 
   return request
 }

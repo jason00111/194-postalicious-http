@@ -56,6 +56,13 @@
         <div>Body</div>
         <textarea id="body"></textarea>
       </div>
+      <div class="history">
+        <select id="history" onChange="remember()">
+          <option value="-1">History</option>
+          <option value="0">first</option>
+          <option value="1">second</option>
+        </select>
+      </div>
       <div class="buttons">
         <button class="buildButton" onClick="build()">
           Build Request
