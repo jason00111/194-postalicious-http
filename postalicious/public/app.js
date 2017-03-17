@@ -38,6 +38,12 @@ function build () {
 
   let request = `${methodInput.value} ${uriInput.value}`
 
+  const requestObject = {
+    method: methodInput.value,
+    host: hostInput.value,
+    uri: uriInput.value,
+  }
+
   if (methodInput.value === 'GET') {
     const queryKeysArray = Array.from(queryKeys).map(input => input.value)
     const queryValuesArray = Array.from(queryValues).map(input => input.value)
@@ -45,6 +51,10 @@ function build () {
     const queries = queryKeysArray.reduce((queries, key, index) => {
       if (key.length !== 0 && queryValuesArray[index].length !== 0) {
         queries.push(`${key}=${queryValuesArray[index]}`)
+        if (!('queries' in requestObject)) {
+          requestObject.queries = []
+        }
+        requestObject.queries.push({[key]: queryValuesArray[index]})
       }
       return queries
     }, [])
@@ -62,6 +72,10 @@ function build () {
   const headers = headerKeysArray.reduce((headers, key, index) => {
     if (key.length !== 0 && headerValuesArray[index].length !== 0) {
       headers.push(`${key}: ${headerValuesArray[index]}`)
+      if (!('headers' in requestObject)) {
+        requestObject.headers = []
+      }
+      requestObject.headers.push({[key]: headerValuesArray[index]})
     }
     return headers
   }, [])
@@ -69,6 +83,7 @@ function build () {
   if (bodyInput.value.length !== 0) {
     headers.push(`Content-Length: ${bodyInput.value.length}`)
     headers.push('Content-Type: text/plain')
+    requestObject.body = bodyInput.value
   }
 
   if (headers.length !== 0) {
@@ -82,6 +97,14 @@ function build () {
   }
 
   rawRequestDiv.textContent = request
+
+  const previousRequests = localStorage.requests
+    ? JSON.parse(localStorage.requests)
+    : []
+
+  previousRequests.push(requestObject)
+
+  localStorage.setItem('requests', JSON.stringify(previousRequests))
 
   return request
 }
