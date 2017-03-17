@@ -43,7 +43,57 @@ function populateHistorySelect () {
 }
 
 function remember () {
-  console.log('remember', historySelect.value)
+  const index = parseInt(historySelect.value)
+
+  clearFields()
+
+  if (index === -1) return
+
+  const history = JSON.parse(localStorage.requests)
+  const request = history[index]
+
+  methodInput.value = request.method
+  hostInput.value = request.host
+  uriInput.value = request.uri
+
+  if ('queries' in request) {
+    request.queries.forEach((query, index) => {
+      for (let key in query) {
+        queryKeys[index].value = key
+        queryValues[index].value = query[key]
+      }
+    })
+  }
+
+  if ('headers' in request) {
+    request.headers.forEach((header, index) => {
+      for (let key in header) {
+        headerKeys[index].value = key
+        headerValues[index].value = header[key]
+      }
+    })
+  }
+
+  if ('body' in request) {
+    bodyInput.value = request.body
+  }
+}
+
+function clearFields () {
+  methodInput.value = null
+  hostInput.value = null
+  uriInput.value = null
+  bodyInput.value = null
+
+  Array.from(queryKeys).forEach((queryKey, index) => {
+    queryKey.value = null
+    queryValues[index].value = null
+  })
+
+  Array.from(headerKeys).forEach((headerKey, index) => {
+    headerKey.value = null
+    headerValues[index].value = null
+  })
 }
 
 function build () {
