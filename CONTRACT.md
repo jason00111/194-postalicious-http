@@ -83,62 +83,62 @@ If that all sounds like ancient Greek to you, never fear. If you take it one ste
 
 **Sandbox Server**
 
-- [ ] Can run the command `npm run sandbox-server` (or `npm run sb`, if you want to save some typing) to start the sandbox web server at port 3000.
-- [ ] The sandbox server source code is written using the [Express][express] library.
-- [ ] Sending a `GET` request to the path `/` responds with...
-  - [ ] a 200 (OK) status code
-  - [ ] a plain-text response body with the content `Welcome to Sandbox!`
-  - [ ] the `Content-Type` header set to `text/plain`
-- [ ] Sending a `GET` request to the path `/search?q=doodads` responds with...
-  - [ ] a 200 (OK) status code
-  - [ ] a plain-text response body with the content `You searched for: "doodads"` (it doesn't need to actually do any searching, just return the plain text)
-  - [ ] the `Content-Type` header set to `text/plain`
-- [ ] Sending a `GET` request to the path `/search` responds with...
-  - [ ] a 400 (Bad Request) status code
-  - [ ] a plain-text response body with the content `You didn't provide a search query term :(`
-  - [ ] the `Content-Type` header set to `text/plain`
-- [ ] Sending a `POST` request to the path `/things` with a plain text body `flying car` responds with...
-  - [ ] a 201 (Created) status code
-  - [ ] a plain-text response body with the content `New thing created: "flying car"!` (it doesn't need to actually create anything, just return the plain text)
-  - [ ] the `Content-Type` header set to `text/plain`
-- [ ] Sending a `GET` request to the path `/somefile` with an `Accept` header of `text/plain` responds with...
-  - [ ] a 200 (OK) status code
-  - [ ] a plain-text response body with the content `This is a plain text file`
-  - [ ] the `Content-Type` header set to `text/plain`
-- [ ] Sending a `GET` request to the path `/somefile` with an `Accept` header of `text/html` responds with...
-  - [ ] a 200 (OK) status code
-  - [ ] an HTML response body with the content `<!DOCTYPE html><html><body>This is an HTML file</body></html>`
-  - [ ] the `Content-Type` header set to `text/html`
-- [ ] Sending a `GET` request to the path `/myjsondata` with an `Accept` header of `application/json` responds with...
-  - [ ] a 200 (OK) status code
-  - [ ] an HTML response body with the content `{ "title": "some JSON data" }`
-  - [ ] the `Content-Type` header set to `application/json`
-- [ ] Sending a `GET` request to the path `/old-page` responds with...
-  - [ ] a 301 (Moved Permanently) status code
-  - [ ] the `Location` header set to `http://localhost:3000/newpage`
-- [ ] Sending a `POST` request to the path `/admin-only` responds with a 403 (Forbidden) status code
-- [ ] Sending a `GET` request to the path `/not-a-page` responds with a 404 (Not Found) status code
-- [ ] Sending a `GET` request to the path `/server-error` responds with a 500 (Internal Server Error) staus code
+- [X] Can run the command `npm run sandbox-server` (or `npm run sb`, if you want to save some typing) to start the sandbox web server at port 3000.
+- [X] The sandbox server source code is written using the [Express][express] library.
+- [X] Sending a `GET` request to the path `/` responds with...
+  - [X] a 200 (OK) status code
+  - [X] a plain-text response body with the content `Welcome to Sandbox!`
+  - [X] the `Content-Type` header set to `text/plain`
+- [X] Sending a `GET` request to the path `/search?q=doodads` responds with...
+  - [X] a 200 (OK) status code
+  - [X] a plain-text response body with the content `You searched for: "doodads"` (it doesn't need to actually do any searching, just return the plain text)
+  - [X] the `Content-Type` header set to `text/plain`
+- [X] Sending a `GET` request to the path `/search` responds with...
+  - [X] a 400 (Bad Request) status code
+  - [X] a plain-text response body with the content `You didn't provide a search query term :(`
+  - [X] the `Content-Type` header set to `text/plain`
+- [X] Sending a `POST` request to the path `/things` with a plain text body `flying car` responds with...
+  - [X] a 201 (Created) status code
+  - [X] a plain-text response body with the content `New thing created: "flying car"!` (it doesn't need to actually create anything, just return the plain text)
+  - [X] the `Content-Type` header set to `text/plain`
+- [X] Sending a `GET` request to the path `/somefile` with an `Accept` header of `text/plain` responds with...
+  - [X] a 200 (OK) status code
+  - [X] a plain-text response body with the content `This is a plain text file`
+  - [X] the `Content-Type` header set to `text/plain`
+- [X] Sending a `GET` request to the path `/somefile` with an `Accept` header of `text/html` responds with...
+  - [X] a 200 (OK) status code
+  - [X] an HTML response body with the content `<!DOCTYPE html><html><body>This is an HTML file</body></html>`
+  - [X] the `Content-Type` header set to `text/html`
+- [X] Sending a `GET` request to the path `/myjsondata` with an `Accept` header of `application/json` responds with...
+  - [X] a 200 (OK) status code
+  - [X] an HTML response body with the content `{ "title": "some JSON data" }`
+  - [X] the `Content-Type` header set to `application/json`
+- [X] Sending a `GET` request to the path `/old-page` responds with...
+  - [X] a 301 (Moved Permanently) status code
+  - [X] the `Location` header set to `http://localhost:3000/newpage`
+- [X] Sending a `POST` request to the path `/admin-only` responds with a 403 (Forbidden) status code
+- [X] Sending a `GET` request to the path `/not-a-page` responds with a 404 (Not Found) status code
+- [X] Sending a `GET` request to the path `/server-error` responds with a 500 (Internal Server Error) staus code
 
 **Postalicious**
 
-- [ ] Can run the command `npm run postalicious` (or `npm run pl`, if you want to save some typing) to start the Postalicious app at port 3001.
-- [ ] Users can visit the main page of the Postalicious site at `http://localhost:3001`.
-- [ ] Main page has three main sections:
-  - [ ] Request builder HTML form
-  - [ ] Raw HTTP request
-  - [ ] Raw HTTP response
-- [ ] When a user fills out the HTML form and clicks a "Send" button...
-  - [ ] The raw HTTP request is generated and shown
-  - [ ] The HTTP request is sent, and the raw response message is shown
-- [ ] Users can fill out an HTML form to specify HTTP request details.
-- [ ] Submitting the form will send the request according to the specified details.
-- [ ] Using the HTML form, users can specify...
-  - [ ] host and path
-  - [ ] HTTP verb/method
-  - [ ] query parameter keys + values
-  - [ ] header keys + values
-  - [ ] request body
+- [X] Can run the command `npm run postalicious` (or `npm run pl`, if you want to save some typing) to start the Postalicious app at port 3001.
+- [X] Users can visit the main page of the Postalicious site at `http://localhost:3001`.
+- [X] Main page has three main sections:
+  - [X] Request builder HTML form
+  - [X] Raw HTTP request
+  - [X] Raw HTTP response
+- [X] When a user fills out the HTML form and clicks a "Send" button...
+  - [X] The raw HTTP request is generated and shown
+  - [X] The HTTP request is sent, and the raw response message is shown
+- [X] Users can fill out an HTML form to specify HTTP request details.
+- [X] Submitting the form will send the request according to the specified details.
+- [X] Using the HTML form, users can specify...
+  - [X] host and path
+  - [X] HTTP verb/method
+  - [X] query parameter keys + values
+  - [X] header keys + values
+  - [X] request body
 
 ### Stretch
 
