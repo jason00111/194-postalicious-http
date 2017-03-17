@@ -144,7 +144,7 @@ If that all sounds like ancient Greek to you, never fear. If you take it one ste
 
 Use the stretch goals to go deeper into the nuts and bolts of HTTP.
 
-- [ ] Sandbox server is written using _only the core Node.js modules_ (instead of Express, use the built-in [HTTP module][node-http]).
+- [X] Sandbox server is written using _only the core Node.js modules_ (instead of Express, use the built-in [HTTP module][node-http]).
 - [ ] Users of Postalicious can "save" their requests in a history panel
 - [ ] Clicking on a saved request will re-load it into the form
 - [ ] Using Postalicious, create some HTTP requests to various real-world APIs:
