@@ -10,7 +10,7 @@
       <div class="postaliciousHeader">
         Postalicious
       </div>
-      <div class="methodHost">
+      <div class="methodHostUri">
         <div>Method</div>
         <input list="methodOptions" id="method">
         <datalist id="methodOptions">
@@ -55,6 +55,13 @@
       <div class="body">
         <div>Body</div>
         <textarea id="body"></textarea>
+      </div>
+      <div class="history">
+        <select id="history" onChange="remember()">
+          <option value="-1">History</option>
+          <option value="0">first</option>
+          <option value="1">second</option>
+        </select>
       </div>
       <div class="buttons">
         <button class="buildButton" onClick="build()">
